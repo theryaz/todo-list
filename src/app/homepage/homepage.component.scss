@@ -1,0 +1,9 @@
+@import "../sass/colors";
+
+#header{
+  margin: 0;
+  background-color: $color1;
+  padding: 10px;
+  color: $font-color-invert;
+  height: 20px;
+}

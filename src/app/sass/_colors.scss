@@ -1,0 +1,24 @@
+/* Coolors Exported Palette - coolors.co/643a71-8b5fbf-04bb8b-c45ab3-d183c9 */
+/* RGB */
+$color1: rgba(100, 58, 113, 1);
+$color2: rgba(139, 95, 191, 1);
+$color3: rgba(4, 187, 139, 1);
+$color4: rgba(196, 90, 179, 1);
+$color5: rgba(209, 131, 201, 1);
+
+
+$background: #FFF;
+
+$primary-color: $color1;
+$secondary-color: #BB0434;
+
+$positive: #3cbd70;
+$negative: #d31a48;
+$warning: darken(yellow,10%);
+$neutral: gray;
+
+$font-color: #333;
+$font-color-fade: lighten($font-color, 50%);
+$font-color-invert: #EEE;
+
+$input-disabled-color: darken($background, 20%);

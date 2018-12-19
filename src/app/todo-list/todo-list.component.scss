@@ -1,0 +1,114 @@
+@import '../sass/colors';
+
+$item-height: 100px;
+$button-size: $item-height / 2;
+
+:host{
+	display: block;
+	margin: auto;
+}
+
+#todo-list{
+	margin: 1.0rem auto;
+	border-radius: 2px;
+	padding: 5px;
+	max-width: 100%;
+}
+
+#add-item-form{
+	input{
+		display: block;
+		margin-bottom: 5px;
+		width: 200px;
+	}
+	label{
+		color: $font-color-fade;
+	}
+}
+.controls{
+	margin-top: 10px;
+	button{
+		margin-right: 10px;
+	}
+}
+
+#add-item-button{
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px dotted $font-color-fade;
+	color: $font-color-fade;
+	transition: background-color 0.3s ease;
+	&:hover{
+		color: $font-color-invert;
+		background-color: $color2;
+	}
+	i{
+		margin: 0 10px;
+	}
+}
+
+.todo-item{
+	padding: 10px;
+	position: relative;
+	min-height: $item-height;
+	h3{
+		font-size: 1.0rem;
+		span.due-date{
+			margin-left: 10px;
+			color: $font-color-fade;
+			font-family: monospace;
+		}
+	}
+	&:hover{
+		.controls-menu{
+			opacity: 1;
+		}
+	}
+	.controls-menu{
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		height: $item-height;
+		line-height: $item-height;
+		position: absolute;
+		right: 0;
+		top:0;
+		span{
+			display: inline-block;
+			height: $button-size;
+			width: $button-size;
+			background-color: red;
+			border-radius: 5px;
+			text-align: center;
+			line-height: $button-size;
+			margin-left: 5px;
+			color: $font-color-invert;
+			&.edit{
+				border: 2px solid $positive;
+				background-color: $positive;
+			}
+			&.delete{
+				border: 2px solid $negative;
+				background-color: $negative;
+			}
+			transition: background-color 0.3s ease;
+			&:hover{
+				background-color: $background;
+				&.edit{
+					color: $positive;
+					border: 2px solid $positive;
+				}
+				&.delete{
+					color: $negative;
+					border: 2px solid $negative;
+				}
+			}
+		}
+	}
+}
+
+@media(min-width: 800px){
+	#todo-list{
+		max-width: 80%;
+	}
+}

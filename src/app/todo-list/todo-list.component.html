@@ -1,0 +1,56 @@
+<div id="todo-list">
+	<div *ngFor="let todo of (todo_state | async).todo_list; let i = index" class="todo-item">
+		<form *ngIf="(todo_state | async).edit_index === i; else todoItem" #form="ngForm">
+			<h3><input name="title" type="text" [(ngModel)]="edit_todo_form.title"/></h3>
+			<p>
+				<textarea name="description" rows="8" cols="80" [(ngModel)]="edit_todo_form.description"></textarea>
+			</p>
+			<div>
+				<dp-date-picker name="due_date" [(ngModel)]="edit_todo_form.due_date"></dp-date-picker>
+			</div>
+			<div class="controls">
+				<button (click)="editItem(i)" type="button" class="common positive-primary" [disabled]="!form.valid">Save</button>
+				<button (click)="cancelEditItem()" type="button" class="common negative-secondary" [disabled]="!form.valid">Cancel</button>
+			</div>
+		</form>
+		<ng-template #todoItem>
+			<h3>{{todo.title}}<span class="due-date"><i class="fas fa-calendar-alt"></i> {{todo.due_date | date:'medium'}}</span></h3>
+			<p>
+				{{todo.description}}
+			</p>
+			<div class="controls-menu">
+				<span class="edit" (click)="beginEditItem(i)">
+					<i class="fas fa-edit"></i>
+				</span>
+				<span class="delete" (click)="deleteItem(i)">
+					<i class="fas fa-trash-alt"></i>
+				</span>
+			</div>
+		</ng-template>
+	</div>
+	<div id="add-item-form" *ngIf="(todo_state | async).adding_item; else addPrompt">
+		<h3>New Todo</h3>
+		<form #form="ngForm">
+			<div>
+				<input required name="title" type="text" class="common" placeholder="Title" [(ngModel)]="todo_form.title"/>
+				<textarea required name="description" rows="8" cols="80" placeholder="Description" [(ngModel)]="todo_form.description"></textarea>
+				<div>
+					<dp-date-picker name="due_date" placeholder="Due Date" required="true" [(ngModel)]="todo_form.due_date"></dp-date-picker>
+				</div>
+			</div>
+			<div class="controls">
+				<button type="button" class="common positive-primary" (click)="addItem()" [disabled]="!form.valid">Save</button>
+				<button type="button" class="common negative-secondary" (click)="cancelAddItem()">Cancel</button>
+			</div>
+		</form>
+	</div>
+	<ng-template #addPrompt>
+		<div (click)="beginAddItem()" id="add-item-button">
+			<i class="fas fa-plus"></i> Add Todo
+		</div>
+	</ng-template>
+</div>
+
+<div id="error" *ngIf="(todo_state | async).error">
+	<i class="fas fa-exclamation-triangle"></i> {{(todo_state | async).error.message}}
+</div>

@@ -1,0 +1,115 @@
+@import "app/sass/colors";
+
+
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+body{
+  margin: 0;
+  background-color: $background;
+}
+
+input.common{
+  padding: 5px;
+  border: none;
+  border: 1px solid $font-color-fade;
+}
+
+button.common{
+	margin: auto;
+	border: none;
+	background: $primary-color;
+	color: $font-color;
+	padding: 0 1rem;
+	line-height: 1.75rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: all 0.2s ease;
+	&.smaller{
+		line-height: 22px;
+		font-size: 12px;
+		padding: 0 0.5rem;
+	}
+	&:disabled{
+		cursor: not-allowed;
+		cursor: default;
+		background-color: $input-disabled-color;
+	}
+	&:hover{
+		background-color: $color3;
+	}
+	&.positive-primary{
+		color: $background;
+		border: 2px solid $positive;
+		background-color: $positive;
+		font-weight: bold;
+		&:hover{
+			color: $positive;
+			border: 2px solid $positive;
+			background-color: $background;
+		}
+		&:disabled, &.disabled{
+			pointer-events: none;
+			cursor: default;
+			color: $font-color-fade;
+			background-color: $background;
+			border: 2px solid $font-color-fade;
+		}
+	}
+	&.positive-secondary{
+		color: $positive;
+		border: 2px solid $positive;
+		background-color: $background;
+		font-weight: bold;
+		&:hover{
+			color: $background;
+			border: 2px solid $positive;
+			background-color: $positive;
+		}
+		&:disabled, &.disabled{
+			pointer-events: none;
+			cursor: default;
+			color: $font-color-fade;
+			background-color: $background;
+			border: 2px solid $font-color-fade;
+		}
+	}
+	&.negative-primary{
+		color: $background;
+		border: 2px solid $negative;
+		background-color: $negative;
+		font-weight: bold;
+		&:hover{
+			color: $negative;
+			border: 2px solid $negative;
+			background-color: $background;
+		}
+		&:disabled, &.disabled{
+			pointer-events: none;
+			cursor: default;
+			color: $font-color-fade;
+			background-color: $background;
+			border: 2px solid $font-color-fade;
+		}
+	}
+	&.negative-secondary{
+		color: $negative;
+		border: 2px solid $negative;
+		background-color: $background;
+		font-weight: bold;
+		&:hover{
+			color: $background;
+			border: 2px solid $negative;
+			background-color: $negative;
+		}
+		&:disabled, &.disabled{
+			pointer-events: none;
+			cursor: default;
+			color: $font-color-fade;
+			background-color: $background;
+			border: 2px solid $font-color-fade;
+		}
+	}
+}
