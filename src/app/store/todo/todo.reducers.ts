@@ -15,10 +15,16 @@ const INITIAL_STATE: State = {
 	edit_index: null,
 	todo_list: [
 		{
-			title: "Add Edit Buttons",
-			description: "I need to be able to edit todo items",
+			title: "Add Persistent Storage",
+			description: "There should be persistent storage via an API backend.",
 			status: "In Progress",
-			due_date: new Date("2018-12-18T18:55")
+			due_date: new Date("2018-12-19T18:55")
+		},
+		{
+			title: "Allow editing status field",
+			description: "The Status field on each todo needs to be editable",
+			status: "In Progress",
+			due_date: new Date("2018-12-19T19:00")
 		}
 	],
 	error: null
